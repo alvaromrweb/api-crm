@@ -32,7 +32,7 @@ const Formulario = ({cliente}) => {
         try {
             let respuesta
             if(isUpdating) {
-                const urlApi =  `http://localhost:4000/clientes/${cliente.id}`
+                const urlApi =  `${import.meta.env.VITE_API_URL}/${cliente.id}`
                 respuesta = await fetch(urlApi, {
                     method: 'PUT',
                     body: JSON.stringify(values),
@@ -43,7 +43,7 @@ const Formulario = ({cliente}) => {
                 
             } else {
 
-                const urlApi =  "http://localhost:4000/clientes"
+                const urlApi =  import.meta.env.VITE_API_URL
                 respuesta = await fetch(urlApi, {
                     method: 'POST',
                     body: JSON.stringify(values),

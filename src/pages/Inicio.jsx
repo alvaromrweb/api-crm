@@ -9,7 +9,7 @@ const Inicio = () => {
 
     const getClientes = async () => {
       try {
-          const urlApi = "http://localhost:4000/clientes"
+          const urlApi = import.meta.env.VITE_API_URL
           const respuesta = await fetch(urlApi)
           const resultado = await respuesta.json()
           setClientes(resultado)
@@ -28,7 +28,7 @@ const Inicio = () => {
     if(confirmation) {
 
         try {
-            const urlApi = `http://localhost:4000/clientes/${idDelete}`
+            const urlApi = `${import.meta.env.VITE_API_URL}/${idDelete}`
             const respuesta = await fetch(urlApi, {
                 method: 'DELETE'
             })
